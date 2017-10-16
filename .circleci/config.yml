@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: circleci/node:7.10
 
-    working_directory: ~/prime
+    working_directory: ~
 
     steps:
       - checkout
@@ -20,7 +20,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-          - run: npm build
+      - run: ng build
 
       - save_cache:
           paths:
