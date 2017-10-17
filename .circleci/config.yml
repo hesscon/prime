@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/node:7.10-browsers
 
     working_directory: ~
 
@@ -30,4 +30,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      #- run: yarn ng test -- --single-run --no-progress
+      - run: yarn ng test -- --single-run --no-progress
