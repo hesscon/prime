@@ -20,13 +20,14 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install angular-cli@latest -g
-      - run: ng build
+      - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
         
+      - run: yarn ng build
+
       # run tests!
-      - run: ng test
+      - run: yarn ng test
